@@ -46,12 +46,13 @@ class HomeController extends Controller
                     $infoBox = new InfoBox('Peminjaman', 'calendar', 'red', route('panel.borrow-rooms.index'), $count_borrow_rooms);
                     $column->append($infoBox);
                 });
-            })
+            });
+            /*
             ->row(function (Row $row) {
                 $row->column(12, function (Column $column) {
                     $column->append($this->admin_user_info());
                 });
-            });
+            });*/
     }
 
     public function admin_user_info()
