@@ -24,8 +24,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-dashboard',
                 'uri' => '/',
                 'permission' => NULL,
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 10:21:03',
             ),
             1 =>
             array(
@@ -36,8 +36,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-tasks',
                 'uri' => '',
                 'permission' => NULL,
-                'created_at' => NULL,
-                'updated_at' => '2021-08-12 01:34:07',
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 01:34:07',
             ),
             2 =>
             array(
@@ -48,8 +48,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-users',
                 'uri' => 'auth/users',
                 'permission' => NULL,
-                'created_at' => NULL,
-                'updated_at' => '2021-08-12 01:34:07',
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 01:34:07',
             ),
             3 =>
             array(
@@ -60,8 +60,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-user',
                 'uri' => 'auth/roles',
                 'permission' => NULL,
-                'created_at' => NULL,
-                'updated_at' => '2021-08-12 01:34:07',
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 01:34:07',
             ),
             4 =>
             array(
@@ -72,8 +72,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-ban',
                 'uri' => 'auth/permissions',
                 'permission' => NULL,
-                'created_at' => NULL,
-                'updated_at' => '2021-08-12 01:34:07',
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 01:34:07',
             ),
             5 =>
             array(
@@ -84,8 +84,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-bars',
                 'uri' => 'auth/menu',
                 'permission' => NULL,
-                'created_at' => NULL,
-                'updated_at' => '2021-08-12 01:34:07',
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 01:34:07',
             ),
             6 =>
             array(
@@ -96,8 +96,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-history',
                 'uri' => 'auth/logs',
                 'permission' => NULL,
-                'created_at' => NULL,
-                'updated_at' => '2021-08-12 01:34:07',
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 01:34:07',
             ),
             7 =>
             array(
@@ -108,8 +108,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-gears',
                 'uri' => '',
                 'permission' => NULL,
-                'created_at' => '2021-08-04 22:20:58',
-                'updated_at' => '2021-08-12 01:34:07',
+                'created_at' => '2024-12-10 22:20:58',
+                'updated_at' => '2024-12-10 01:34:07',
             ),
             8 =>
             array(
@@ -120,8 +120,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-keyboard-o',
                 'uri' => 'helpers/scaffold',
                 'permission' => NULL,
-                'created_at' => '2021-08-04 22:20:58',
-                'updated_at' => '2021-08-12 01:34:07',
+                'created_at' => '2024-12-10 22:20:58',
+                'updated_at' => '2024-12-10 01:34:07',
             ),
             9 =>
             array(
@@ -132,8 +132,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-database',
                 'uri' => 'helpers/terminal/database',
                 'permission' => NULL,
-                'created_at' => '2021-08-04 22:20:58',
-                'updated_at' => '2021-08-12 01:34:07',
+                'created_at' => '2024-12-10 22:20:58',
+                'updated_at' => '2024-12-10 01:34:07',
             ),
             10 =>
             array(
@@ -144,8 +144,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-terminal',
                 'uri' => 'helpers/terminal/artisan',
                 'permission' => NULL,
-                'created_at' => '2021-08-04 22:20:58',
-                'updated_at' => '2021-08-12 01:34:07',
+                'created_at' => '2024-12-10 22:20:58',
+                'updated_at' => '2024-12-10 01:34:07',
             ),
             11 =>
             array(
@@ -156,8 +156,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-list-alt',
                 'uri' => 'helpers/routes',
                 'permission' => NULL,
-                'created_at' => '2021-08-04 22:20:58',
-                'updated_at' => '2021-08-12 01:34:07',
+                'created_at' => '2024-12-10 22:20:58',
+                'updated_at' => '2024-12-10 01:34:07',
             ),
             12 =>
             array(
@@ -168,8 +168,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-cubes',
                 'uri' => 'room-types',
                 'permission' => 'list.room_types',
-                'created_at' => '2021-08-04 22:21:35',
-                'updated_at' => '2021-08-12 02:18:40',
+                'created_at' => '2024-12-10 22:21:35',
+                'updated_at' => '2024-12-10 02:18:40',
             ),
             13 =>
             array(
@@ -180,8 +180,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-trello',
                 'uri' => 'rooms',
                 'permission' => 'list.rooms',
-                'created_at' => '2021-08-04 22:22:06',
-                'updated_at' => '2021-08-12 02:18:21',
+                'created_at' => '2024-12-10 22:22:06',
+                'updated_at' => '2024-12-10 02:18:21',
             ),
             14 =>
             array(
@@ -192,8 +192,8 @@ class AdminMenuTableSeeder extends Seeder
                 'icon' => 'fa-calendar',
                 'uri' => 'borrow-rooms',
                 'permission' => 'list.borrow_rooms',
-                'created_at' => '2021-08-04 22:22:30',
-                'updated_at' => '2021-08-12 02:18:08',
+                'created_at' => '2024-12-10 22:22:30',
+                'updated_at' => '2024-12-10 02:18:08',
             ),
         );
 

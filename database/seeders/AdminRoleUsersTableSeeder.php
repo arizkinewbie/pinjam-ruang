@@ -19,22 +19,22 @@ class AdminRoleUsersTableSeeder extends Seeder
             array(
                 'role_id' => 1,
                 'user_id' => 1,
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 10:21:03',
             ),
             1 =>
             array(
                 'role_id' => 2,
                 'user_id' => 2,
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 10:21:03',
             ),
             2 =>
             array(
                 'role_id' => 4,
                 'user_id' => 3,
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 10:21:03',
             ),
         );
 

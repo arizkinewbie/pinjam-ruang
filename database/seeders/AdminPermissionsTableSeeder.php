@@ -22,8 +22,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => '*',
                 'http_method' => '',
                 'http_path' => '*',
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 10:21:03',
             ),
             1 =>
             array(
@@ -32,8 +32,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'dashboard',
                 'http_method' => 'GET',
                 'http_path' => '/',
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 10:21:03',
             ),
             2 =>
             array(
@@ -43,8 +43,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'http_method' => '',
                 'http_path' => '/auth/login
                                 /auth/logout',
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 10:21:03',
             ),
             3 =>
             array(
@@ -53,8 +53,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'auth.setting',
                 'http_method' => 'GET,PUT',
                 'http_path' => '/auth/setting',
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 10:21:03',
             ),
             4 =>
             array(
@@ -66,8 +66,8 @@ class AdminPermissionsTableSeeder extends Seeder
                                 /auth/permissions
                                 /auth/menu
                                 /auth/logs',
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => '2024-12-10 10:21:03',
+                'updated_at' => '2024-12-10 10:21:03',
             ),
             5 =>
             array(
@@ -76,8 +76,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'ext.helpers',
                 'http_method' => '',
                 'http_path' => '/helpers/*',
-                'created_at' => '2021-08-04 22:20:58',
-                'updated_at' => '2021-08-04 22:20:58',
+                'created_at' => '2024-12-10 22:20:58',
+                'updated_at' => '2024-12-10 22:20:58',
             ),
             6 =>
             array(
@@ -86,8 +86,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'list.room_types',
                 'http_method' => 'GET',
                 'http_path' => '/room-types*',
-                'created_at' => '2021-08-12 01:32:56',
-                'updated_at' => '2021-08-12 02:08:23',
+                'created_at' => '2024-12-10 01:32:56',
+                'updated_at' => '2024-12-10 02:08:23',
             ),
             7 =>
             array(
@@ -96,8 +96,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'create.room_types',
                 'http_method' => 'POST',
                 'http_path' => '/room-types*',
-                'created_at' => '2021-08-12 01:47:16',
-                'updated_at' => '2021-08-12 02:09:02',
+                'created_at' => '2024-12-10 01:47:16',
+                'updated_at' => '2024-12-10 02:09:02',
             ),
             8 =>
             array(
@@ -106,8 +106,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'edit.room_types',
                 'http_method' => 'PUT',
                 'http_path' => '/room-types/*',
-                'created_at' => '2021-08-12 01:54:49',
-                'updated_at' => '2021-08-12 02:09:47',
+                'created_at' => '2024-12-10 01:54:49',
+                'updated_at' => '2024-12-10 02:09:47',
             ),
             9 =>
             array(
@@ -116,8 +116,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'delete.room_types',
                 'http_method' => 'DELETE',
                 'http_path' => '/room-types/*',
-                'created_at' => '2021-08-12 02:01:03',
-                'updated_at' => '2021-08-12 02:01:03',
+                'created_at' => '2024-12-10 02:01:03',
+                'updated_at' => '2024-12-10 02:01:03',
             ),
             10 =>
             array(
@@ -126,8 +126,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'list.rooms',
                 'http_method' => 'GET',
                 'http_path' => '/rooms*',
-                'created_at' => '2021-08-12 02:11:31',
-                'updated_at' => '2021-08-12 02:11:31',
+                'created_at' => '2024-12-10 02:11:31',
+                'updated_at' => '2024-12-10 02:11:31',
             ),
             11 =>
             array(
@@ -136,8 +136,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'create.rooms',
                 'http_method' => 'POST',
                 'http_path' => '/rooms*',
-                'created_at' => '2021-08-12 02:11:55',
-                'updated_at' => '2021-08-12 02:11:55',
+                'created_at' => '2024-12-10 02:11:55',
+                'updated_at' => '2024-12-10 02:11:55',
             ),
             12 =>
             array(
@@ -146,8 +146,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'edit.rooms',
                 'http_method' => 'PUT',
                 'http_path' => '/rooms/*',
-                'created_at' => '2021-08-12 02:12:23',
-                'updated_at' => '2021-08-12 02:12:23',
+                'created_at' => '2024-12-10 02:12:23',
+                'updated_at' => '2024-12-10 02:12:23',
             ),
             13 =>
             array(
@@ -156,8 +156,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'delete.rooms',
                 'http_method' => 'DELETE',
                 'http_path' => '/rooms/*',
-                'created_at' => '2021-08-12 02:12:40',
-                'updated_at' => '2021-08-12 02:12:40',
+                'created_at' => '2024-12-10 02:12:40',
+                'updated_at' => '2024-12-10 02:12:40',
             ),
             14 =>
             array(
@@ -166,8 +166,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'list.borrow_rooms',
                 'http_method' => 'GET',
                 'http_path' => '/borrow-rooms*',
-                'created_at' => '2021-08-12 02:13:24',
-                'updated_at' => '2021-08-12 02:13:24',
+                'created_at' => '2024-12-10 02:13:24',
+                'updated_at' => '2024-12-10 02:13:24',
             ),
             15 =>
             array(
@@ -176,8 +176,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'create.borrow_rooms',
                 'http_method' => 'POST',
                 'http_path' => '/borrow-rooms*',
-                'created_at' => '2021-08-12 02:13:49',
-                'updated_at' => '2021-08-12 02:13:49',
+                'created_at' => '2024-12-10 02:13:49',
+                'updated_at' => '2024-12-10 02:13:49',
             ),
             16 =>
             array(
@@ -186,8 +186,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'edit.borrow_rooms',
                 'http_method' => 'PUT',
                 'http_path' => '/borrow-rooms/*',
-                'created_at' => '2021-08-12 02:14:12',
-                'updated_at' => '2021-08-12 02:14:12',
+                'created_at' => '2024-12-10 02:14:12',
+                'updated_at' => '2024-12-10 02:14:12',
             ),
             17 =>
             array(
@@ -196,8 +196,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'slug' => 'delete.borrow_rooms',
                 'http_method' => 'DELETE',
                 'http_path' => '/borrow-rooms/*',
-                'created_at' => '2021-08-12 02:14:35',
-                'updated_at' => '2021-08-12 02:14:35',
+                'created_at' => '2024-12-10 02:14:35',
+                'updated_at' => '2024-12-10 02:14:35',
             ),
         );
 
