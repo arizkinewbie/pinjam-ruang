@@ -2,15 +2,13 @@
 
 namespace App\Admin\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\User;
 use Carbon\Carbon;
-use Encore\Admin\Controllers\Dashboard;
+use Encore\Admin\Layout\Row;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
-use Encore\Admin\Layout\Row;
 use Encore\Admin\Widgets\InfoBox;
-use Encore\Admin\Widgets\Box;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
@@ -23,28 +21,28 @@ class HomeController extends Controller
             ->row(function (Row $row) {
                 // Widget for users
                 $row->column(3, function (Column $column) {
-                    $count_users = \DB::table('admin_users')->count();
+                    $count_users = DB::table('admin_users')->whereNull('deleted_at')->count();
                     $infoBox = new InfoBox('Pengguna', 'users', 'aqua', route('admin.auth.users.index'), $count_users);
                     $column->append($infoBox);
                 });
 
                 // Widget for room types
                 $row->column(3, function (Column $column) {
-                    $count_room_types = \DB::table('room_types')->count();
+                    $count_room_types = DB::table('room_types')->whereNull('deleted_at')->count();
                     $infoBox = new InfoBox('Tipe Ruangan', 'cubes', 'green', route('admin.room-types.index'), $count_room_types);
                     $column->append($infoBox);
                 });
 
                 // Widget for rooms
                 $row->column(3, function (Column $column) {
-                    $count_rooms = \DB::table('rooms')->count();
+                    $count_rooms = DB::table('rooms')->whereNull('deleted_at')->count();
                     $infoBox = new InfoBox('Ruangan', 'trello', 'yellow', route('admin.rooms.index'), $count_rooms);
                     $column->append($infoBox);
                 });
 
                 // Widget for borrow rooms
                 $row->column(3, function (Column $column) {
-                    $count_borrow_rooms = \DB::table('borrow_rooms')->count();
+                    $count_borrow_rooms = DB::table('borrow_rooms')->whereNull('deleted_at')->count();
                     $infoBox = new InfoBox('Peminjaman', 'calendar', 'red', route('admin.borrow-rooms.index'), $count_borrow_rooms);
                     $column->append($infoBox);
                 });
