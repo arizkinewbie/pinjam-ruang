@@ -18,6 +18,7 @@ class CreateRoomTypesTable extends Migration
             $table->string('name');
             $table->tinyInteger('is_active')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

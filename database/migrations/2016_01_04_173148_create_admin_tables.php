@@ -29,6 +29,7 @@ class CreateAdminTables extends Migration
             $table->string('avatar')->nullable();
             $table->string('remember_token', 100)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create(config('admin.database.roles_table'), function (Blueprint $table) {

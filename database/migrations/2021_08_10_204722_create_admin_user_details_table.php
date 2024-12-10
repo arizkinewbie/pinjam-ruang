@@ -18,6 +18,7 @@ class CreateAdminUserDetailsTable extends Migration
             $table->unsignedInteger('admin_user_id')->constrained();
             $table->text('data')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
