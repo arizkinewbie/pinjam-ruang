@@ -37,6 +37,7 @@ class CreateAdminTables extends Migration
             $table->string('name', 50)->unique();
             $table->string('slug', 50)->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create(config('admin.database.permissions_table'), function (Blueprint $table) {
@@ -46,6 +47,7 @@ class CreateAdminTables extends Migration
             $table->string('http_method')->nullable();
             $table->text('http_path')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create(config('admin.database.menu_table'), function (Blueprint $table) {
@@ -56,8 +58,8 @@ class CreateAdminTables extends Migration
             $table->string('icon', 50);
             $table->string('uri')->nullable();
             $table->string('permission')->nullable();
-
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create(config('admin.database.role_users_table'), function (Blueprint $table) {
@@ -65,6 +67,7 @@ class CreateAdminTables extends Migration
             $table->integer('user_id');
             $table->index(['role_id', 'user_id']);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create(config('admin.database.role_permissions_table'), function (Blueprint $table) {
@@ -72,6 +75,7 @@ class CreateAdminTables extends Migration
             $table->integer('permission_id');
             $table->index(['role_id', 'permission_id']);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create(config('admin.database.user_permissions_table'), function (Blueprint $table) {
@@ -79,6 +83,7 @@ class CreateAdminTables extends Migration
             $table->integer('permission_id');
             $table->index(['user_id', 'permission_id']);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create(config('admin.database.role_menu_table'), function (Blueprint $table) {
@@ -86,6 +91,7 @@ class CreateAdminTables extends Migration
             $table->integer('menu_id');
             $table->index(['role_id', 'menu_id']);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create(config('admin.database.operation_log_table'), function (Blueprint $table) {
@@ -97,6 +103,7 @@ class CreateAdminTables extends Migration
             $table->text('input');
             $table->index('user_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
