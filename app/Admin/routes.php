@@ -26,11 +26,11 @@ Route::group([
 
     $router->group(['prefix' => 'api'], function (Router $router) {
         // AdministratorApiController
-        $router->get('college-students', [AdministratorApiController::class, 'getCollegeStudents']);
-        $router->get('lecturers', [AdministratorApiController::class, 'getLecturers']);
-        $router->get('administrators', [AdministratorApiController::class, 'getAdministrators']);
+        $router->get('college-students', [AdministratorApiController::class, 'getCollegeStudents'])->name('getCollegeStudents');
+        $router->get('lecturers', [AdministratorApiController::class, 'getLecturers'])->name('getLecturers');
+        $router->get('administrators', [AdministratorApiController::class, 'getAdministrators'])->name('getAdministrators');
 
         // RoomApiController
-        $router->get('rooms', [RoomApiController::class, 'getRooms']);
+        $router->get('rooms', [RoomApiController::class, 'getRooms'])->name('getRooms');
     });
 });
