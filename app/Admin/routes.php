@@ -1,8 +1,13 @@
 <?php
 
-use App\Admin\Controllers\API\V1\AdministratorApiController;
-use App\Admin\Controllers\API\V1\RoomApiController;
 use Illuminate\Routing\Router;
+use Encore\Admin\Facades\Admin;
+use Illuminate\Support\Facades\Route;
+use App\Admin\Controllers\RoomController;
+use App\Admin\Controllers\RoomTypeController;
+use App\Admin\Controllers\BorrowRoomController;
+use App\Admin\Controllers\API\V1\RoomApiController;
+use App\Admin\Controllers\API\V1\AdministratorApiController;
 
 Admin::routes();
 

@@ -29,21 +29,21 @@ class HomeController extends Controller
                 // Widget for room types
                 $row->column(3, function (Column $column) {
                     $count_room_types = DB::table('room_types')->whereNull('deleted_at')->count();
-                    $infoBox = new InfoBox('Tipe Ruangan', 'cubes', 'green', route('admin.room-types.index'), $count_room_types);
+                    $infoBox = new InfoBox('Tipe Ruangan', 'cubes', 'green', route('panel.room-types.index'), $count_room_types);
                     $column->append($infoBox);
                 });
 
                 // Widget for rooms
                 $row->column(3, function (Column $column) {
                     $count_rooms = DB::table('rooms')->whereNull('deleted_at')->count();
-                    $infoBox = new InfoBox('Ruangan', 'trello', 'yellow', route('admin.rooms.index'), $count_rooms);
+                    $infoBox = new InfoBox('Ruangan', 'trello', 'yellow', route('panel.rooms.index'), $count_rooms);
                     $column->append($infoBox);
                 });
 
                 // Widget for borrow rooms
                 $row->column(3, function (Column $column) {
                     $count_borrow_rooms = DB::table('borrow_rooms')->whereNull('deleted_at')->count();
-                    $infoBox = new InfoBox('Peminjaman', 'calendar', 'red', route('admin.borrow-rooms.index'), $count_borrow_rooms);
+                    $infoBox = new InfoBox('Peminjaman', 'calendar', 'red', route('panel.borrow-rooms.index'), $count_borrow_rooms);
                     $column->append($infoBox);
                 });
             })

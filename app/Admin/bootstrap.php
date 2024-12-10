@@ -17,5 +17,5 @@ Use Encore\Admin\Admin;
  * Admin::js('/packages/prettydocs/js/main.js');
  *
  */
-Admin::favicon('/public/uploads/images/favicon.ico');
+Admin::favicon('/uploads/images/favicon.ico');
 Encore\Admin\Form::forget(['map', 'editor']);
