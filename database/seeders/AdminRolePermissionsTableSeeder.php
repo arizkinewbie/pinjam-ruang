@@ -155,24 +155,10 @@ class AdminRolePermissionsTableSeeder extends Seeder
                 'created_at' => '2024-12-10 10:21:03',
                 'updated_at' => '2024-12-10 10:21:03',
             ),
-            20 =>
-            array(
-                'role_id' => 2,
-                'permission_id' => 17,
-                'created_at' => '2024-12-10 10:21:03',
-                'updated_at' => '2024-12-10 10:21:03',
-            ),
             21 =>
             array(
                 'role_id' => 2,
                 'permission_id' => 18,
-                'created_at' => '2024-12-10 10:21:03',
-                'updated_at' => '2024-12-10 10:21:03',
-            ),
-            22 =>
-            array(
-                'role_id' => 2,
-                'permission_id' => 19,
                 'created_at' => '2024-12-10 10:21:03',
                 'updated_at' => '2024-12-10 10:21:03',
             ),

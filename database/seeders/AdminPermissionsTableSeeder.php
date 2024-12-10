@@ -162,7 +162,7 @@ class AdminPermissionsTableSeeder extends Seeder
             14 =>
             array(
                 'id' => 16,
-                'name' => 'List Borrow Rooms',
+                'name' => 'List Borrow Room',
                 'slug' => 'list.borrow_rooms',
                 'http_method' => 'GET',
                 'http_path' => '/borrow-rooms*',
@@ -192,7 +192,7 @@ class AdminPermissionsTableSeeder extends Seeder
             17 =>
             array(
                 'id' => 19,
-                'name' => 'Delete Borrow Rooms',
+                'name' => 'Delete Borrow Room',
                 'slug' => 'delete.borrow_rooms',
                 'http_method' => 'DELETE',
                 'http_path' => '/borrow-rooms/*',
