@@ -6,8 +6,8 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-md-7 ftco-animate">
-          	<h2 class="subheading">Selamat datang di Pinjam Ruang</h2>
-          	<h1 class="mb-4">Pinjam ruangan mudah dan cepat</h1>
+          	<h2 class="subheading">Selamat datang di Pinjam Ruang Diskusi</h2>
+          	<h1 class="mb-4">Pinjam ruangan perpustakaan mudah dan cepat</h1>
             <p><a href="#" class="btn btn-primary">Pelajari lebih lanjut</a> <a href="#" class="btn btn-white">Hubungi kami</a></p>
           </div>
         </div>
@@ -210,7 +210,7 @@
                                     <li>{!! implode('<br>', $borrower_status) !!}</li>
                                 </ul>
                                 <!-- Button trigger modal -->
-                                <p class="pt-1"><a href="javascript:void(0)" id="buttonBorrowRoomModal" class="btn-custom px-3 py-2" data-toggle="modal" data-target="#borrowRoomModal" data-room-id="{{ $room->id }}" data-room-name="{{ $room->name }}">Pinjam Ruang Ini <span class="icon-long-arrow-right"></span></a></p>
+                                <p class="pt-1"><a href="javascript:void(0)" id="buttonBorrowRoomModal" class="btn-custom px-3 py-2" data-toggle="modal" data-target="#borrowRoomModal" data-room-id="{{ $room->id }}" data-room-name="{{ $room->name }}">Pinjam Ruang Diskusi Ini <span class="icon-long-arrow-right"></span></a></p>
                             </div>
                         </div>
                     </div>
@@ -409,7 +409,7 @@
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="borrowRoomModalLabel">Pinjam Ruang - Nama Ruang</h5>
+            <h5 class="modal-title" id="borrowRoomModalLabel">Pinjam Ruang Diskusi - Nama Ruang</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -521,7 +521,7 @@
                 $('input[name="room"]').val(roomId);
 
                 // change title modal
-                $('#borrowRoomModalLabel').text('Pinjam Ruang - ' + roomName);
+                $('#borrowRoomModalLabel').text('Pinjam Ruang Diskusi - ' + roomName);
 
                 // Rest form modal
                 resetBorrowRoomModalForm()

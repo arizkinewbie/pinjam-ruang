@@ -1,4 +1,4 @@
-<title>Pinjam Ruang | Universitas Esa Unggul</title>
+<title>Pinjam Ruang Diskusi | Perpustakaan Universitas Esa Unggul Bekasi</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

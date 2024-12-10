@@ -59,7 +59,7 @@
                                     <li><span>Status:</span> {{ App\Enums\RoomStatus::getDescription($room_status) }}</li>
                                     <li>{!! implode('<br>', $borrower_status) !!}</li>
                                 </ul>
-                                <p class="pt-1"><a href="javascript:void(0)" id="buttonBorrowRoomModal" class="btn-custom px-3 py-2" data-toggle="modal" data-target="#borrowRoomModal" data-room-id="{{ $room->id }}" data-room-name="{{ $room->name }}">Pinjam Ruang Ini <span class="icon-long-arrow-right"></span></a></p>
+                                <p class="pt-1"><a href="javascript:void(0)" id="buttonBorrowRoomModal" class="btn-custom px-3 py-2" data-toggle="modal" data-target="#borrowRoomModal" data-room-id="{{ $room->id }}" data-room-name="{{ $room->name }}">Pinjam Ruang Diskusi Ini <span class="icon-long-arrow-right"></span></a></p>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="borrowRoomModalLabel">Pinjam Ruang - Nama Ruang</h5>
+            <h5 class="modal-title" id="borrowRoomModalLabel">Pinjam Ruang Diskusi - Nama Ruang</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -172,7 +172,7 @@
                 $('input[name="room"]').val(roomId);
 
                 // change title modal
-                $('#borrowRoomModalLabel').text('Pinjam Ruang - ' + roomName);
+                $('#borrowRoomModalLabel').text('Pinjam Ruang Diskusi - ' + roomName);
 
                 // Rest form modal
                 resetBorrowRoomModalForm()
