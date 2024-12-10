@@ -32,11 +32,6 @@ class HomeController extends Controller
 
     public function contact()
     {
-        $data['rooms'] = Room::with('room_type')->get();
-        $data['lecturers'] = Administrator::whereHas('roles', function ($query) {
-            $query->where('slug', 'dosen');
-        })->get();
-
-        return view('pages.contact', compact('data'));
+        return view('pages.contact');
     }
 }
