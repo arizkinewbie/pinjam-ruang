@@ -1,5 +1,5 @@
 <?php
-
+Use Encore\Admin\Admin;
 /**
  * Laravel-admin - admin builder based on Laravel.
  * @author z-song <https://github.com/z-song>
@@ -17,5 +17,5 @@
  * Admin::js('/packages/prettydocs/js/main.js');
  *
  */
-
+Admin::favicon('/public/uploads/images/favicon.ico');
 Encore\Admin\Form::forget(['map', 'editor']);
