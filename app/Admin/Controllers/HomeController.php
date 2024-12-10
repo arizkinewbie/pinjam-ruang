@@ -16,8 +16,8 @@ class HomeController extends Controller
     public function index(Content $content)
     {
         return $content
-            ->title('Dasbor')
-            ->description('Pinjam ruang')
+            ->title('Dashboard')
+            ->description('Pinjam Ruang Diskusi')
             ->row(function (Row $row) {
                 // Widget for users
                 $row->column(3, function (Column $column) {
