@@ -41,7 +41,7 @@ class AdministratorApiController extends Controller
     }
 
     /**
-     * Get all administrator where has role `tata-usaha`
+     * Get all administrator where has role `staff`
      *
      * @param  mixed $request
      * @return void
@@ -51,7 +51,7 @@ class AdministratorApiController extends Controller
         $q = $request->get('q');
 
         return Administrator::whereHas('roles', function ($query) {
-            $query->where('slug', 'tata-usaha');
+            $query->where('slug', 'staff');
         })->where('name', 'like', "%$q%")->paginate(null, ['id', 'name as text']);
     }
 }

@@ -92,7 +92,7 @@ class BorrowRoomController extends Controller
             $grid->model()->where('lecturer_id', $admin_user->id);
         else if ($admin_user->isRole('mahasiswa'))
             $grid->model()->where('borrower_id', $admin_user->id);
-        else if ($admin_user->isRole('tata-usaha'))
+        else if ($admin_user->isRole('staff'))
             $grid->model()->whereIn('lecturer_approval_status', [ApprovalStatus::Disetujui(), ApprovalStatus::Ditolak()]);
 
         $grid->id('ID');
@@ -176,8 +176,8 @@ class BorrowRoomController extends Controller
         $show->field('until_at', 'Selesai Pinjam');
         $show->field('lecturer.name', 'Dosen');
         $show->field('lecturer_approval_status', 'Status Persetujuan Dosen')->using(ApprovalStatus::asSelectArray());;
-        $show->field('admin.name', ' Tata Usaha');
-        $show->field('admin_approval_status', 'Status Persetujuan Tata Usaha')->using(ApprovalStatus::asSelectArray());;
+        $show->field('admin.name', ' Staff Perpustakaan');
+        $show->field('admin_approval_status', 'Status Persetujuan Staff Perpustakaan')->using(ApprovalStatus::asSelectArray());;
         $show->field('processed_at', 'Kunci Diambil Pada');
         $show->field('returned_at', 'Diselesaikan Pada');
         $show->field('notes', 'Catatan');
@@ -213,7 +213,7 @@ class BorrowRoomController extends Controller
         $form = new Form(new BorrowRoom);
         $admin_user = \Admin::user();
         $isDosen = $admin_user->isRole('dosen');
-        $isTatausaha = $admin_user->isRole('tata-usaha');
+        $isTatausaha = $admin_user->isRole('staff');
 
         if ($form->isEditing())
             $form->display('id', 'ID');
@@ -250,12 +250,12 @@ class BorrowRoomController extends Controller
                 $college_students = Administrator::find($id);
                 if ($college_students)
                     return [$college_students->id => $college_students->name];
-            })->ajax('/admin/api/college-students');
+            })->ajax(route('panel.getCollegeStudents'));
             $form->select('room_id', 'Ruangan')->options(function ($id) {
                 $room = Room::find($id);
                 if ($room)
                     return [$room->id => $room->name];
-            })->ajax('/admin/api/rooms');
+            })->ajax(route('panel.getRooms'));
             $form->datetime('borrow_at', 'Mulai Pinjam')->format('YYYY-MM-DD HH:mm');
             $form->datetime('until_at', 'Selesai Pinjam')->format('YYYY-MM-DD HH:mm');
         }
@@ -278,7 +278,7 @@ class BorrowRoomController extends Controller
 
             // Check if lecturer approved the borrow_rooms
             $form->hidden('admin_id');
-            $form->radio('admin_approval_status', 'Status Persetujuan Tata Usaha')
+            $form->radio('admin_approval_status', 'Status Persetujuan Staff Perpustakaan')
                 ->options(ApprovalStatus::asSelectArray())
                 ->with(function ($value, Field $thisField) {
                     $lecturer_approval_status = $this->lecturer_approval_status;
@@ -311,16 +311,16 @@ class BorrowRoomController extends Controller
                 $lecturers = Administrator::find($id);
                 if ($lecturers)
                     return [$lecturers->id => $lecturers->name];
-            })->ajax('/admin/api/lecturers');
+            })->ajax(route('panel.getLecturers'));
             $form->radio('lecturer_approval_status', 'Status Persetujuan Dosen')->options(ApprovalStatus::asSelectArray());
 
             // Approval administration and etc
-            $form->select('admin_id', 'Tata Usaha')->options(function ($id) {
+            $form->select('admin_id', 'Staff Perpustakaan')->options(function ($id) {
                 $administrators = Administrator::find($id);
                 if ($administrators)
                     return [$administrators->id => $administrators->name];
-            })->ajax('/admin/api/administrators');
-            $form->radio('admin_approval_status', 'Status Persetujuan Tata Usaha')->options(ApprovalStatus::asSelectArray());
+            })->ajax(route('panel.getAdministrators'));
+            $form->radio('admin_approval_status', 'Status Persetujuan Staff Perpustakaan')->options(ApprovalStatus::asSelectArray());
             $form->datetime('processed_at', 'Kunci Diambil Pada')->format('YYYY-MM-DD HH:mm');
             $form->datetime('returned_at', 'Diselesaikan Pada')->format('YYYY-MM-DD HH:mm');
             $form->textarea('notes', 'Catatan');

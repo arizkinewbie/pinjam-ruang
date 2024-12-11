@@ -27,7 +27,7 @@ class AdminRolesTableSeeder extends Seeder
             array(
                 'id' => 2,
                 'name' => 'Staff Perpustakaan',
-                'slug' => 'tata-usaha',
+                'slug' => 'staff',
                 'created_at' => '2024-12-10 22:39:30',
                 'updated_at' => '2024-12-10 22:39:30',
             ),
