@@ -188,7 +188,7 @@ class AdminMenuTableSeeder extends Seeder
                 'id' => 15,
                 'parent_id' => 0,
                 'order' => 4,
-                'title' => 'Pinjam Ruang',
+                'title' => 'Peminjaman Ruangan',
                 'icon' => 'fa-calendar',
                 'uri' => 'borrow-rooms',
                 'permission' => 'list.borrow_rooms',
