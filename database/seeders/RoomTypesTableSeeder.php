@@ -25,34 +25,10 @@ class RoomTypesTableSeeder extends Seeder
             1 =>
             array(
                 'id' => 2,
-                'name' => 'Kelas',
+                'name' => 'Rapat',
                 'is_active' => 1,
                 'created_at' => '2024-12-10 22:52:24',
                 'updated_at' => '2024-12-10 22:52:24',
-            ),
-            2 =>
-            array(
-                'id' => 3,
-                'name' => 'Workspace Multimedia',
-                'is_active' => 1,
-                'created_at' => '2024-12-10 19:09:56',
-                'updated_at' => '2024-12-10 19:09:56',
-            ),
-            3 =>
-            array(
-                'id' => 4,
-                'name' => 'Workspace Rendering',
-                'is_active' => 1,
-                'created_at' => '2024-12-10 19:20:58',
-                'updated_at' => '2024-12-10 19:20:58',
-            ),
-            4 =>
-            array(
-                'id' => 5,
-                'name' => 'Workspace Software Development',
-                'is_active' => 1,
-                'created_at' => '2024-12-10 19:21:08',
-                'updated_at' => '2024-12-10 19:21:08',
             ),
         );
 
