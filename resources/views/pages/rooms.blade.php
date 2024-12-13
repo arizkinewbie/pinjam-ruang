@@ -114,55 +114,26 @@
                             <input id="room" name="room" type="hidden" value="{{ old('room') }}">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input name="full_name" type="text" class="form-control" placeholder="Nama Lengkap">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="input-wrap">
-                                        <div class="icon"><span class="ion-md-calendar"></span></div>
-                                        <input name="borrow_at" type="text"
-                                            class="form-control appointment_date-check-in" placeholder="Tgl Mulai">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="input-wrap">
-                                        <div class="icon"><span class="ion-md-calendar"></span></div>
-                                        <input name="until_at" type="text"
-                                            class="form-control appointment_date-check-out" placeholder="Tgl Selesai">
-                                    </div>
+                                    <input name="full_name" type="text" class="form-control" placeholder="Nama Lengkap"
+                                        required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <select name="lecturer" id="" class="form-control">
-                                                <option value="" selected disabled>Pilih dosen</option>
-                                                @forelse ($data['lecturers'] as $lecturer)
-                                                    <option value="{{ $lecturer->id }}">
-                                                        {{ $lecturer->name }}
-                                                    </option>
-                                                @empty
-                                                    <option value="" disabled>Belum ada dosen yang terdaftar</option>
-                                                @endforelse
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <input name="email" type="email" class="form-control" placeholder="Email Aktif"
+                                        required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input name="nim" type="text" class="form-control" placeholder="NIM">
+                                    <input name="nim" type="text" class="form-control" placeholder="NIM" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">
-                                            <select name="study_program" id="" class="form-control">
+                                            <select name="study_program" id="" class="form-control" required>
                                                 <option value="" selected disabled>Prodi</option>
                                                 <option value="teknik-informatika">Teknik Informatika (D3)</option>
                                                 <option value="teknik-multimedia-dan-jaringan">Teknik Multimedia & Jaringan
@@ -173,6 +144,26 @@
                                                 </option>
                                             </select>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-wrap">
+                                        <div class="icon"><span class="ion-md-calendar"></span></div>
+                                        <input name="borrow_at" type="text"
+                                            class="form-control appointment_date-check-in" placeholder="Tgl Mulai"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-wrap">
+                                        <div class="icon"><span class="ion-md-calendar"></span></div>
+                                        <input name="until_at" type="text"
+                                            class="form-control appointment_date-check-out" placeholder="Tgl Selesai"
+                                            required>
                                     </div>
                                 </div>
                             </div>
@@ -191,33 +182,33 @@
         </div>
     </div>
 
-    @section('scripts')
-        <script>
-            //triggered when modal is about to be shown
-            $(document).on('click', '#buttonBorrowRoomModal', function() {
+@section('scripts')
+    <script>
+        //triggered when modal is about to be shown
+        $(document).on('click', '#buttonBorrowRoomModal', function() {
 
-                var roomName = $(this).data('room-name');
-                var roomId = $(this).data('room-id');
+            var roomName = $(this).data('room-name');
+            var roomId = $(this).data('room-id');
 
-                // Change value room
-                $('input[name="room"]').val(roomId);
+            // Change value room
+            $('input[name="room"]').val(roomId);
 
-                // change title modal
-                $('#borrowRoomModalLabel').text('Pinjam Ruang Diskusi - ' + roomName);
+            // change title modal
+            $('#borrowRoomModalLabel').text('Pinjam Ruang Diskusi - ' + roomName);
 
-                // Rest form modal
-                resetBorrowRoomModalForm()
-            });
+            // Rest form modal
+            resetBorrowRoomModalForm()
+        });
 
-            function resetBorrowRoomModalForm() {
-                $('#borrowRoomModal').find('input[name="full_name"]').val('');
-                $('#borrowRoomModal').find('input[name="borrow_at"]').val('');
-                $('#borrowRoomModal').find('input[name="until_at"]').val('');
-                $('#borrowRoomModal').find('select[name="lecturer"]').val($('select[name="lecturer"] option:first').val());
-                $('#borrowRoomModal').find('input[name="nim"]').val('');
-                $('#borrowRoomModal').find('select[name="study_program"]').val($('select[name="study_program"] option:first')
-                    .val());
-            }
-        </script>
-    @endsection
+        function resetBorrowRoomModalForm() {
+            $('#borrowRoomModal').find('input[name="full_name"]').val('');
+            $('#borrowRoomModal').find('input[name="borrow_at"]').val('');
+            $('#borrowRoomModal').find('input[name="until_at"]').val('');
+            $('#borrowRoomModal').find('select[name="lecturer"]').val($('select[name="lecturer"] option:first').val());
+            $('#borrowRoomModal').find('input[name="nim"]').val('');
+            $('#borrowRoomModal').find('select[name="study_program"]').val($('select[name="study_program"] option:first')
+                .val());
+        }
+    </script>
+@endsection
 @endsection
