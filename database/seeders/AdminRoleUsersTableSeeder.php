@@ -31,7 +31,7 @@ class AdminRoleUsersTableSeeder extends Seeder
             ),
             2 =>
             array(
-                'role_id' => 4,
+                'role_id' => 3,
                 'user_id' => 3,
                 'created_at' => '2024-12-10 10:21:03',
                 'updated_at' => '2024-12-10 10:21:03',
