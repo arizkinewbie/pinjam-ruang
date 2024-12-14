@@ -22,55 +22,6 @@ class AdminRolePermissionsTableSeeder extends Seeder
                 'created_at' => '2024-12-10 10:21:03',
                 'updated_at' => '2024-12-10 10:21:03',
             ),
-            1 =>
-            array(
-                'role_id' => 3,
-                'permission_id' => 2,
-                'created_at' => '2024-12-10 10:21:03',
-                'updated_at' => '2024-12-10 10:21:03',
-            ),
-            2 =>
-            array(
-                'role_id' => 3,
-                'permission_id' => 3,
-                'created_at' => '2024-12-10 10:21:03',
-                'updated_at' => '2024-12-10 10:21:03',
-            ),
-            3 =>
-            array(
-                'role_id' => 3,
-                'permission_id' => 4,
-                'created_at' => '2024-12-10 10:21:03',
-                'updated_at' => '2024-12-10 10:21:03',
-            ),
-            4 =>
-            array(
-                'role_id' => 3,
-                'permission_id' => 7,
-                'created_at' => '2024-12-10 10:21:03',
-                'updated_at' => '2024-12-10 10:21:03',
-            ),
-            5 =>
-            array(
-                'role_id' => 3,
-                'permission_id' => 12,
-                'created_at' => '2024-12-10 10:21:03',
-                'updated_at' => '2024-12-10 10:21:03',
-            ),
-            6 =>
-            array(
-                'role_id' => 3,
-                'permission_id' => 16,
-                'created_at' => '2024-12-10 10:21:03',
-                'updated_at' => '2024-12-10 10:21:03',
-            ),
-            7 =>
-            array(
-                'role_id' => 3,
-                'permission_id' => 18,
-                'created_at' => '2024-12-10 10:21:03',
-                'updated_at' => '2024-12-10 10:21:03',
-            ),
             8 =>
             array(
                 'role_id' => 2,
@@ -164,28 +115,28 @@ class AdminRolePermissionsTableSeeder extends Seeder
             ),
             23 =>
             array(
-                'role_id' => 4,
+                'role_id' => 3,
                 'permission_id' => 2,
                 'created_at' => '2024-12-10 10:21:03',
                 'updated_at' => '2024-12-10 10:21:03',
             ),
             24 =>
             array(
-                'role_id' => 4,
+                'role_id' => 3,
                 'permission_id' => 3,
                 'created_at' => '2024-12-10 10:21:03',
                 'updated_at' => '2024-12-10 10:21:03',
             ),
             25 =>
             array(
-                'role_id' => 4,
+                'role_id' => 3,
                 'permission_id' => 4,
                 'created_at' => '2024-12-10 10:21:03',
                 'updated_at' => '2024-12-10 10:21:03',
             ),
             26 =>
             array(
-                'role_id' => 4,
+                'role_id' => 3,
                 'permission_id' => 16,
                 'created_at' => '2024-12-10 10:21:03',
                 'updated_at' => '2024-12-10 10:21:03',
