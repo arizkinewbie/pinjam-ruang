@@ -74,22 +74,16 @@
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="study_program" id="" class="form-control" required>
+                                            <select name="study_program" id="study_program" class="form-control" required>
                                                 <option value="" selected disabled>Pilih Prodi</option>
-                                                <option value="teknik-informatika"
-                                                    @if (old('study_program') == 'teknik-informatika') selected @endif>Teknik Informatika
-                                                    (D3)</option>
-                                                <option value="teknik-multimedia-dan-jaringan"
-                                                    @if (old('study_program') == 'teknik-multimedia-dan-jaringan') selected @endif>Teknik Multimedia &
-                                                    Jaringan (D4)</option>
-                                                <option value="teknik-geomatika"
-                                                    @if (old('study_program') == 'teknik-geomatika') selected @endif>Teknik Geomatika (D3)
-                                                </option>
-                                                <option value="animasi" @if (old('study_program') == 'animasi') selected @endif>
-                                                    Animasi (D4)</option>
-                                                <option value="rekayasa-keamanan-siber"
-                                                    @if (old('study_program') == 'rekayasa-keamanan-siber') selected @endif>Rekayasa Keamanan
-                                                    Siber (D4)</option>
+                                                @forelse ($data['prodi'] as $studyProgram)
+                                                    <option value="{{ $studyProgram['code'] }}"
+                                                        @if (old('study_program') == $studyProgram['code']) selected @endif>
+                                                        {{ $studyProgram['name'] . ' (' . $studyProgram['degree'] . ')' }}
+                                                    </option>
+                                                @empty
+                                                    <option value="" disabled>Belum ada prodi yang tersedia</option>
+                                                @endforelse
                                             </select>
                                         </div>
                                     </div>
@@ -99,7 +93,8 @@
                                 <div class="form-group">
                                     <div class="input-wrap">
                                         <div class="icon"><span class="ion-md-calendar"></span></div>
-                                        <input id="borrow_at" name="borrow_at" value="{{ old('borrow_at') }}" type="text"
+                                        <input id="borrow_at" name="borrow_at" value="{{ old('borrow_at') }}"
+                                            type="text"
                                             class="form-control appointment_date-check-in datetimepicker-input"
                                             placeholder="Tgl Mulai" data-toggle="datetimepicker" data-target="#borrow_at"
                                             required>
@@ -112,8 +107,8 @@
                                         <div class="icon"><span class="ion-md-calendar"></span></div>
                                         <input id="until_at" name="until_at" value="{{ old('until_at') }}" type="text"
                                             class="form-control appointment_date-check-out datetimepicker-input"
-                                            placeholder="Tgl Selesai" data-toggle="datetimepicker"
-                                            data-target="#until_at" required>
+                                            placeholder="Tgl Selesai" data-toggle="datetimepicker" data-target="#until_at"
+                                            required>
                                     </div>
                                 </div>
                             </div>

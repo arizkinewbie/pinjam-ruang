@@ -135,13 +135,14 @@
                                         <div class="select-wrap">
                                             <select name="study_program" id="" class="form-control" required>
                                                 <option value="" selected disabled>Pilih Prodi</option>
-                                                <option value="teknik-informatika">Teknik Informatika (D3)</option>
-                                                <option value="teknik-multimedia-dan-jaringan">Teknik Multimedia & Jaringan
-                                                    (D4)</option>
-                                                <option value="teknik-geomatika">Teknik Geomatika (D3)</option>
-                                                <option value="animasi">Animasi (D4)</option>
-                                                <option value="rekayasa-keamanan-siber">Rekayasa Keamanan Siber (D4)
-                                                </option>
+                                                @forelse ($data['prodi'] as $studyProgram)
+                                                    <option value="{{ $studyProgram['code'] }}"
+                                                        @if (old('study_program') == $studyProgram['code']) selected @endif>
+                                                        {{ $studyProgram['name'] . ' (' . $studyProgram['degree'] . ')' }}
+                                                    </option>
+                                                @empty
+                                                    <option value="" disabled>Belum ada prodi yang tersedia</option>
+                                                @endforelse
                                             </select>
                                         </div>
                                     </div>
@@ -182,33 +183,33 @@
         </div>
     </div>
 
-@section('scripts')
-    <script>
-        //triggered when modal is about to be shown
-        $(document).on('click', '#buttonBorrowRoomModal', function() {
+    @section('scripts')
+        <script>
+            //triggered when modal is about to be shown
+            $(document).on('click', '#buttonBorrowRoomModal', function() {
 
-            var roomName = $(this).data('room-name');
-            var roomId = $(this).data('room-id');
+                var roomName = $(this).data('room-name');
+                var roomId = $(this).data('room-id');
 
-            // Change value room
-            $('input[name="room"]').val(roomId);
+                // Change value room
+                $('input[name="room"]').val(roomId);
 
-            // change title modal
-            $('#borrowRoomModalLabel').text('Pinjam Ruang Diskusi - ' + roomName);
+                // change title modal
+                $('#borrowRoomModalLabel').text('Pinjam Ruang Diskusi - ' + roomName);
 
-            // Rest form modal
-            resetBorrowRoomModalForm()
-        });
+                // Rest form modal
+                resetBorrowRoomModalForm()
+            });
 
-        function resetBorrowRoomModalForm() {
-            $('#borrowRoomModal').find('input[name="full_name"]').val('');
-            $('#borrowRoomModal').find('input[name="borrow_at"]').val('');
-            $('#borrowRoomModal').find('input[name="until_at"]').val('');
-            $('#borrowRoomModal').find('select[name="lecturer"]').val($('select[name="lecturer"] option:first').val());
-            $('#borrowRoomModal').find('input[name="nim"]').val('');
-            $('#borrowRoomModal').find('select[name="study_program"]').val($('select[name="study_program"] option:first')
-                .val());
-        }
-    </script>
-@endsection
+            function resetBorrowRoomModalForm() {
+                $('#borrowRoomModal').find('input[name="full_name"]').val('');
+                $('#borrowRoomModal').find('input[name="borrow_at"]').val('');
+                $('#borrowRoomModal').find('input[name="until_at"]').val('');
+                $('#borrowRoomModal').find('select[name="lecturer"]').val($('select[name="lecturer"] option:first').val());
+                $('#borrowRoomModal').find('input[name="nim"]').val('');
+                $('#borrowRoomModal').find('select[name="study_program"]').val($('select[name="study_program"] option:first')
+                    .val());
+            }
+        </script>
+    @endsection
 @endsection
