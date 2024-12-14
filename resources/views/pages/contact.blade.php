@@ -29,14 +29,14 @@
                             <div class="form-group">
                                 <label class="text-black" for="name">Full Name</label>
                                 <input type="text" placeholder="John Doe" class="form-control" id="name"
-                                    name="name">
+                                    name="name" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="text-black" for="nim">NIM</label>
                                 <input type="text" placeholder="2020xxxxxxx" class="form-control" id="nim"
-                                    name="nim">
+                                    name="nim" required>
                             </div>
                         </div>
                     </div>
@@ -45,28 +45,27 @@
                             <div class="form-group">
                                 <label class="text-black" for="email">Email Address</label>
                                 <input type="email" placeholder="mimin@student.esaunggul.ac.id" class="form-control"
-                                    name="email" id="email">
+                                    name="email" id="email" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="text-black" for="hp">No. HP/WhatsApp</label>
                                 <input type="number" placeholder="0822xxxxxxxx" class="form-control" name="hp"
-                                    id="hp">
+                                    id="hp" required>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="text-black" for="message">Message</label>
                         <textarea name="message" placeholder="Isi Pesan disini" class="form-control" id="message" cols="30"
-                            rows="5"></textarea>
+                            rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
         </div>
     </div>
-
 @section('scripts')
     <script></script>
 @endsection
