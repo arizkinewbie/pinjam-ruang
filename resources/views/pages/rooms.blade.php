@@ -134,7 +134,7 @@
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <select name="study_program" id="" class="form-control" required>
-                                                <option value="" selected disabled>Prodi</option>
+                                                <option value="" selected disabled>Pilih Prodi</option>
                                                 <option value="teknik-informatika">Teknik Informatika (D3)</option>
                                                 <option value="teknik-multimedia-dan-jaringan">Teknik Multimedia & Jaringan
                                                     (D4)</option>

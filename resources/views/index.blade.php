@@ -75,7 +75,7 @@
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
                                             <select name="study_program" id="" class="form-control" required>
-                                                <option value="" selected disabled>Prodi</option>
+                                                <option value="" selected disabled>Pilih Prodi</option>
                                                 <option value="teknik-informatika"
                                                     @if (old('study_program') == 'teknik-informatika') selected @endif>Teknik Informatika
                                                     (D3)</option>
@@ -123,7 +123,7 @@
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
                                             <select name="room" id="" class="form-control" required>
-                                                <option value="" selected disabled>Pilih ruangan</option>
+                                                <option value="" selected disabled>Pilih Ruangan</option>
                                                 @forelse ($data['rooms'] as $room)
                                                     <option value="{{ $room->id }}"
                                                         @if (old('room') == $room->id) selected @endif>
