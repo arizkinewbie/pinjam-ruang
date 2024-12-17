@@ -133,25 +133,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="lecturer" id="" class="form-control">
-                                                @forelse ($data['lecturers'] as $key => $lecturerName)
-                                                    <option value="{{ $key }}"
-                                                        @if (old('lecturer') == $key) selected @endif>
-                                                        {{ $lecturerName }}
-                                                    </option>
-                                                @empty
-                                                    <option value="1">Default</option>
-                                                @endforelse
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <input type="submit" value="Pinjam Ruang Sekarang"
@@ -203,16 +184,15 @@
                         </div>
                     </div>
                     <div class="pl-md-5">
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It
-                            is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        <p>Perpustakaan Universitas Esa Unggul berusaha menyediakan fasilitas yang memudahkan mahasiswa</p>
                         <div class="row">
                             <div class="services-2 col-lg-6 d-flex w-100">
                                 <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="flaticon-diet"></span>
+                                    <span class="flaticon-first"></span>
                                 </div>
                                 <div class="media-body pl-3">
-                                    <h3 class="heading">Tea Coffee</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                                    <h3 class="heading">Wifi</h3>
+                                    <p>Menyediakan fasilitas wifi yang dapat diakses dan dijamin kecepatan tinggi</p>
                                 </div>
                             </div>
                             <div class="services-2 col-lg-6 d-flex w-100">
@@ -417,7 +397,6 @@
                 $('#borrowRoomModal').find('input[name="full_name"]').val('');
                 $('#borrowRoomModal').find('input[name="borrow_at"]').val('');
                 $('#borrowRoomModal').find('input[name="until_at"]').val('');
-                $('#borrowRoomModal').find('select[name="lecturer"]').val($('select[name="lecturer"] option:first').val());
                 $('#borrowRoomModal').find('input[name="nim"]').val('');
                 $('#borrowRoomModal').find('select[name="study_program"]').val($('select[name="study_program"] option:first')
                     .val());

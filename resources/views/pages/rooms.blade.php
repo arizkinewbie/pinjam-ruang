@@ -205,7 +205,6 @@
                 $('#borrowRoomModal').find('input[name="full_name"]').val('');
                 $('#borrowRoomModal').find('input[name="borrow_at"]').val('');
                 $('#borrowRoomModal').find('input[name="until_at"]').val('');
-                $('#borrowRoomModal').find('select[name="lecturer"]').val($('select[name="lecturer"] option:first').val());
                 $('#borrowRoomModal').find('input[name="nim"]').val('');
                 $('#borrowRoomModal').find('select[name="study_program"]').val($('select[name="study_program"] option:first')
                     .val());

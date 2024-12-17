@@ -85,16 +85,12 @@ class BorrowRoomController extends Controller
     protected function grid()
     {
         $grid = new Grid(new BorrowRoom);
-
         $admin_user = \Admin::user();
         // Show query only related to roles
-        if ($admin_user->isRole('dosen'))
-            $grid->model()->where('lecturer_id', $admin_user->id);
-        else if ($admin_user->isRole('mahasiswa'))
-            $grid->model()->where('borrower_id', $admin_user->id);
+        if ($admin_user->isRole('mahasiswa'))
+            $grid->model()->where('borrower_id', $admin_user->id)->where('deleted_at', null);
         else if ($admin_user->isRole('staff'))
-            $grid->model()->whereIn('lecturer_approval_status', [ApprovalStatus::Disetujui(), ApprovalStatus::Ditolak()]);
-
+            $grid->model()->where('deleted_at', null);
         $grid->id('ID');
         $grid->column('borrower.name', 'Peminjam');
         $grid->column('room.name', 'Ruangan');
@@ -104,34 +100,30 @@ class BorrowRoomController extends Controller
         $grid->column('until_at', 'Lama Pinjam')->display(function ($title, $column) {
             $borrow_at = Carbon::parse($this->borrow_at);
             $until_at = Carbon::parse($title);
-
-            return $until_at->diffForHumans($borrow_at);
+            $result = $until_at->diffForHumans($borrow_at);
+            return $result;
         });
-        $grid->column('lecturer.name', 'Dosen');
+        $grid->column('admin.name', 'Staff Perpustakaan')->display(function ($staff) {
+            $staff = $this->admin->name ?? '-';
+            return $staff;
+        });
         $grid->column('status', 'Status')->display(function ($title, $column) {
-            $lecturer_approval_status = $this->lecturer_approval_status;
             $admin_approval_status =    $this->admin_approval_status;
             $returned_at =              $this->returned_at ?? null;
             $processed_at =             $this->processed_at ?? null;
-
-            if ($lecturer_approval_status == 1) {
-                if ($admin_approval_status == 1) {
-                    if ($returned_at != null)
-                        $val = ['success', 'Peminjaman selesai'];
-                    else if ($processed_at != null)
-                        $val = ['success', 'Ruangan sedang digunakan'];
-                    else
-                        $val = ['success', 'Disetujui'];
-                } else if ($admin_approval_status == 0)
-                    $val = ['info', 'Menunggu Persetujuan'];
-                else
-                    $val = ['danger', 'Ditolak'];
-            } else if ($lecturer_approval_status == 0) {
-                $val = ['info', 'Menunggu persetujuan Dosen'];
+            if ($admin_approval_status == 1) {
+                if ($returned_at != null) {
+                    $val = ['success', 'Peminjaman selesai'];
+                } else if ($processed_at != null) {
+                    $val = ['success', 'Ruangan sedang digunakan'];
+                } else {
+                    $val = ['success', 'Disetujui'];
+                }
+            } else if ($admin_approval_status == 0) {
+                $val = ['info', 'Menunggu Persetujuan'];
             } else {
-                $val = ['danger', 'Ditolak Dosen'];
+                $val = ['danger', 'Ditolak'];
             }
-
             return '<span class="label-' . $val[0] . '" style="width: 8px;height: 8px;padding: 0;border-radius: 50%;display: inline-block;"></span>&nbsp;&nbsp;'
                 . $val[1];
         });
@@ -139,9 +131,7 @@ class BorrowRoomController extends Controller
         // Role & Permission
         if (!\Admin::user()->can('create.borrow_rooms'))
             $grid->disableCreateButton();
-
         $grid->actions(function ($actions) {
-
             // The roles with this permission will not able to see the view button in actions column.
             if (!\Admin::user()->can('edit.borrow_rooms')) {
                 $actions->disableEdit();
@@ -155,7 +145,6 @@ class BorrowRoomController extends Controller
                 $actions->disableDelete();
             }
         });
-
         return $grid;
     }
 
@@ -174,10 +163,8 @@ class BorrowRoomController extends Controller
         $show->field('room.name', 'Ruangan');
         $show->field('borrow_at', 'Mulai Pinjam');
         $show->field('until_at', 'Selesai Pinjam');
-        $show->field('lecturer.name', 'Dosen');
-        $show->field('lecturer_approval_status', 'Status Persetujuan Dosen')->using(ApprovalStatus::asSelectArray());;
         $show->field('admin.name', ' Staff Perpustakaan');
-        $show->field('admin_approval_status', 'Status Persetujuan Staff Perpustakaan')->using(ApprovalStatus::asSelectArray());;
+        $show->field('admin_approval_status', 'Status Persetujuan')->using(ApprovalStatus::asSelectArray());
         $show->field('processed_at', 'Kunci Diambil Pada');
         $show->field('returned_at', 'Diselesaikan Pada');
         $show->field('notes', 'Catatan');
@@ -212,27 +199,13 @@ class BorrowRoomController extends Controller
     {
         $form = new Form(new BorrowRoom);
         $admin_user = \Admin::user();
-        $isDosen = $admin_user->isRole('dosen');
         $isTatausaha = $admin_user->isRole('staff');
 
         if ($form->isEditing())
             $form->display('id', 'ID');
 
         // Mahasiswa Form
-        if ($isDosen) {
-            $form->display('borrower.name', 'Peminjam');
-            $form->display('room.name', 'Ruangan');
-            $form->display('borrow_at', 'Lama Pinjam')->with(function () {
-                $borrow_at = Carbon::parse($this->borrow_at);
-                $until_at = Carbon::parse($this->until_at);
-                $count_days = $borrow_at->diffInDays($until_at) + 1;
-
-                if ($count_days == 1)
-                    return $count_days . ' hari (' . $until_at->format('d M Y') . ')';
-                else
-                    return $count_days . ' hari (' . $borrow_at->format('d M Y') . ' s/d ' . $until_at->format('d M Y') . ')';
-            });
-        } else if ($isTatausaha) {
+        if ($isTatausaha) {
             $form->display('borrower.name', 'Peminjam');
             $form->display('room.name', 'Ruangan');
             $form->display('borrow_at', 'Lama Pinjam')->with(function () {
@@ -261,35 +234,16 @@ class BorrowRoomController extends Controller
         }
 
         // BATAS
-
-        if ($isDosen) {
+        if ($isTatausaha) {
             $form->display('created_at', 'Diajukan pada')->with(function () {
                 return Carbon::parse($this->created_at)->format('d M Y');
             });
-            $form->radio('lecturer_approval_status', 'Status Persetujuan Dosen')->options(ApprovalStatus::asSelectArray());
-        } else if ($isTatausaha) {
-            $form->display('created_at', 'Diajukan pada')->with(function () {
-                return Carbon::parse($this->created_at)->format('d M Y');
-            });
-            $form->display('lecturer.name', 'Dosen');
-            $form->display('lecturer_approval_status', 'Status Persetujuan Dosen')->with(function () {
-                return ApprovalStatus::getDescription($this->lecturer_approval_status);
-            });
-
-            // Check if lecturer approved the borrow_rooms
             $form->hidden('admin_id');
-            $form->radio('admin_approval_status', 'Status Persetujuan Staff Perpustakaan')
-                ->options(ApprovalStatus::asSelectArray())
-                ->with(function ($value, Field $thisField) {
-                    $lecturer_approval_status = $this->lecturer_approval_status;
-                    if (
-                        $lecturer_approval_status === ApprovalStatus::Pending
-                        || $lecturer_approval_status === ApprovalStatus::Ditolak
-                    )
-                        $thisField->attribute('disabled', true);
-
-                    return $value;
-                });
+            $form->display('admin_id', 'Staff Perpustakaan')->with(function () use ($admin_user) {
+                return $admin_user->name;
+            })->readonly();
+            $form->radio('admin_approval_status', 'Status Persetujuan')
+                ->options(ApprovalStatus::asSelectArray());
             $form->datetime('processed_at', 'Kunci Diambil Pada')->format('YYYY-MM-DD HH:mm')->with(function ($value, Field $thisField) {
                 $admin_approval_status = $this->admin_approval_status;
                 if (
@@ -306,13 +260,6 @@ class BorrowRoomController extends Controller
             $form->textarea('notes', 'Catatan');
             // }
         } else {
-            // Approval Lecturer
-            $form->select('lecturer_id', 'Dosen')->options(function ($id) {
-                $lecturers = Administrator::find($id);
-                if ($lecturers)
-                    return [$lecturers->id => $lecturers->name];
-            })->ajax(route('panel.getLecturers'));
-            $form->radio('lecturer_approval_status', 'Status Persetujuan Dosen')->options(ApprovalStatus::asSelectArray());
 
             // Approval administration and etc
             $form->select('admin_id', 'Staff Perpustakaan')->options(function ($id) {
@@ -320,7 +267,7 @@ class BorrowRoomController extends Controller
                 if ($administrators)
                     return [$administrators->id => $administrators->name];
             })->ajax(route('panel.getAdministrators'));
-            $form->radio('admin_approval_status', 'Status Persetujuan Staff Perpustakaan')->options(ApprovalStatus::asSelectArray());
+            $form->radio('admin_approval_status', 'Status Persetujuan')->options(ApprovalStatus::asSelectArray());
             $form->datetime('processed_at', 'Kunci Diambil Pada')->format('YYYY-MM-DD HH:mm');
             $form->datetime('returned_at', 'Diselesaikan Pada')->format('YYYY-MM-DD HH:mm');
             $form->textarea('notes', 'Catatan');

@@ -122,9 +122,6 @@ class BorrowRoomApiController extends Controller
             'room_id' =>            $request->room,
             'borrow_at' =>          Carbon::make($request->borrow_at),
             'until_at' =>           Carbon::make($request->until_at),
-            // TODO: hapus dosen
-            // 'lecturer_id' =>        $request->lecturer,
-            'lecturer_id' =>        1,
         ]);
 
         // Return success create borrow_rooms

@@ -20,10 +20,8 @@ class CreateBorrowRoomsTable extends Migration
             $table->foreignId('room_id')->constrained();
             $table->dateTime('borrow_at');
             $table->dateTime('until_at');
-            $table->unsignedInteger('lecturer_id');
-            $table->tinyInteger('lecturer_approval_status')->default(ApprovalStatus::Pending());
             $table->unsignedInteger('admin_id')->nullable();
-            $table->tinyInteger('admin_approval_status')->nullable();
+            $table->tinyInteger('admin_approval_status')->default(ApprovalStatus::Pending());
             $table->dateTime('processed_at')->nullable();
             $table->dateTime('returned_at')->nullable();
             $table->text('notes')->nullable();
@@ -31,10 +29,6 @@ class CreateBorrowRoomsTable extends Migration
             $table->softDeletes();
 
             $table->foreign('borrower_id')
-                ->references('id')->on('admin_users')
-                ->onUpdate('CASCADE')
-                ->onDelete('RESTRICT');
-            $table->foreign('lecturer_id')
                 ->references('id')->on('admin_users')
                 ->onUpdate('CASCADE')
                 ->onDelete('RESTRICT');
