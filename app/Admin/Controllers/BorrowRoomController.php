@@ -121,11 +121,11 @@ class BorrowRoomController extends Controller
                     else if ($processed_at != null)
                         $val = ['success', 'Ruangan sedang digunakan'];
                     else
-                        $val = ['success', 'Sudah disetujui TU'];
+                        $val = ['success', 'Disetujui'];
                 } else if ($admin_approval_status == 0)
-                    $val = ['info', 'Menunggu persetujuan TU'];
+                    $val = ['info', 'Menunggu Persetujuan'];
                 else
-                    $val = ['danger', 'Ditolak TU'];
+                    $val = ['danger', 'Ditolak'];
             } else if ($lecturer_approval_status == 0) {
                 $val = ['info', 'Menunggu persetujuan Dosen'];
             } else {

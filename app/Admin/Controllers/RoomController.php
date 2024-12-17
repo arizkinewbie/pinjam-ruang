@@ -103,14 +103,13 @@ class RoomController extends Controller
                         else if ($processed_at != null)
                             $val = ['success', 'Ruangan sedang digunakan'];
                         else
-                            $val = ['success', 'Sudah disetujui TU'];
+                            $val = ['success', 'Disetujui'];
                     } else if ($admin_approval_status == 0)
-                        $val = ['info', 'Menunggu persetujuan TU'];
+                        $val = ['info', 'Menunggu Persetujuan'];
                 } else if ($lecturer_approval_status == 0) {
                     $val = ['info', 'Menunggu persetujuan Dosen'];
                 }
             }
-            // return 'wkwk';
             return '<span class="label-' . $val[0] . '" style="width: 8px;height: 8px;padding: 0;border-radius: 50%;display: inline-block;"></span>&nbsp;&nbsp;'
                 . $val[1];
         });
