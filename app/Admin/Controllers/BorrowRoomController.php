@@ -159,7 +159,12 @@ class BorrowRoomController extends Controller
         $show = new Show(BorrowRoom::findOrFail($id));
 
         $show->id('ID');
-        $show->field('borrower.name', 'Peminjam');
+        $show->field('borrower', 'Peminjam')->as(function ($model) {
+            $adminUserDetail = \App\Models\AdminUserDetail::where('admin_user_id', $model->id)->first()->data;
+            $data = json_decode($adminUserDetail);
+            $result = "{$model->name} ({$model->username}) - " . ucwords(str_replace('-', ' ', $data->study_program));
+            return $result;
+        });
         $show->field('room.name', 'Ruangan');
         $show->field('borrow_at', 'Mulai Pinjam');
         $show->field('until_at', 'Selesai Pinjam');
