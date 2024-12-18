@@ -211,7 +211,12 @@ class BorrowRoomController extends Controller
 
         // Mahasiswa Form
         if ($isTatausaha) {
-            $form->display('borrower.name', 'Peminjam');
+            $form->display('borrower', 'Peminjam') ->with(function ($borrower) {
+                $adminUserDetail = \App\Models\AdminUserDetail::where('admin_user_id', $borrower)->first()->data;
+                $data = json_decode($adminUserDetail);
+                $result = "{$borrower['name']} ({$borrower['username']}) - " . ucwords(str_replace('-', ' ', $data->study_program));
+                return $result;
+            });
             $form->display('room.name', 'Ruangan');
             $form->display('borrow_at', 'Lama Pinjam')->with(function () {
                 $borrow_at = Carbon::parse($this->borrow_at);
