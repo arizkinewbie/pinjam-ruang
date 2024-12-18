@@ -8702,7 +8702,7 @@ textarea.form-control {
     height: inherit !important; }
 
 footer {
-  padding: 7em 0; }
+  padding: 3em 0; }
 
 .footer {
   background: #272727;
@@ -8713,7 +8713,7 @@ footer {
   .footer .footer-heading {
     font-size: 20px;
     color: #fff;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     font-weight: 500;
     font-family: "Poppins", Arial, sans-serif; }
     .footer .footer-heading .logo {

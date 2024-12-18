@@ -170,12 +170,12 @@
                     <div class="img img-2 mb-4"
                         style="background-image: url(vendor/technext/vacation-rental/images/about.jpg);">
                     </div>
-                    <h2>The most recommended vacation rental</h2>
+                    {{-- <h2>The most recommended vacation rental</h2>
                     <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a
                         paradisematic country, in which roasted parts of sentences fly into your mouth. Even the
                         all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One
                         day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World
-                        of Grammar.</p>
+                        of Grammar.</p> --}}
                 </div>
                 <div class="col-md-6 wrap-about ftco-animate">
                     <div class="heading-section">
@@ -192,25 +192,7 @@
                                 </div>
                                 <div class="media-body pl-3">
                                     <h3 class="heading">Wifi</h3>
-                                    <p>Menyediakan fasilitas wifi yang dapat diakses dan dijamin kecepatan tinggi</p>
-                                </div>
-                            </div>
-                            <div class="services-2 col-lg-6 d-flex w-100">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="flaticon-workout"></span>
-                                </div>
-                                <div class="media-body pl-3">
-                                    <h3 class="heading">Hot Showers</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary</p>
-                                </div>
-                            </div>
-                            <div class="services-2 col-lg-6 d-flex w-100">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="flaticon-diet-1"></span>
-                                </div>
-                                <div class="media-body pl-3">
-                                    <h3 class="heading">Laundry</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                                    <p>Nikmati akses internet super cepat untuk mengerjakan tugas kelompok, belajar, ataupun diskusi online tanpa hambatan.</p>
                                 </div>
                             </div>
                             <div class="services-2 col-lg-6 d-flex w-100">
@@ -218,8 +200,8 @@
                                     <span class="flaticon-first"></span>
                                 </div>
                                 <div class="media-body pl-3">
-                                    <h3 class="heading">Air Conditioning</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                                    <h3 class="heading">Colokan Listrik</h3>
+                                    <p>Tetap produktif tanpa khawatir perangkat Anda kehabisan daya, dengan colokan listrik yang mudah dijangkau.</p>
                                 </div>
                             </div>
                             <div class="services-2 col-lg-6 d-flex w-100">
@@ -227,8 +209,8 @@
                                     <span class="flaticon-first"></span>
                                 </div>
                                 <div class="media-body pl-3">
-                                    <h3 class="heading">Free Wifi</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                                    <h3 class="heading">Colokan LAN</h3>
+                                    <p>Koneksi internet kabel yang stabil dan tanpa gangguan untuk mengerjakan tugas kelompok, meeting online, ataupun belajar.</p>
                                 </div>
                             </div>
                             <div class="services-2 col-lg-6 d-flex w-100">
@@ -236,8 +218,8 @@
                                     <span class="flaticon-first"></span>
                                 </div>
                                 <div class="media-body pl-3">
-                                    <h3 class="heading">Kitchen</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                                    <h3 class="heading">Meja Panjang</h3>
+                                    <p>Meja besar yang memberikan ruang yang cukup untuk laptop, buku, dan materi diskusi.</p>
                                 </div>
                             </div>
                             <div class="services-2 col-lg-6 d-flex w-100">
@@ -245,8 +227,8 @@
                                     <span class="flaticon-first"></span>
                                 </div>
                                 <div class="media-body pl-3">
-                                    <h3 class="heading">Ironing</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                                    <h3 class="heading">Kursi</h3>
+                                    <p>Kursi empuk yang memberikan kenyamanan maksimal selama berdiskusi, belajar, ataupun mengerjakan tugas kelompok.</p>
                                 </div>
                             </div>
                             <div class="services-2 col-lg-6 d-flex w-100">
@@ -254,8 +236,26 @@
                                     <span class="flaticon-first"></span>
                                 </div>
                                 <div class="media-body pl-3">
-                                    <h3 class="heading">Lovkers</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                                    <h3 class="heading">Papan Tulis</h3>
+                                    <p>Media visual untuk menuangkan ide, menyusun strategi, atau membuat presentasi yang lebih interaktif dan menarik.</p>
+                                </div>
+                            </div>
+                            <div class="services-2 col-lg-6 d-flex w-100">
+                                <div class="icon d-flex justify-content-center align-items-center">
+                                    <span class="flaticon-first"></span>
+                                </div>
+                                <div class="media-body pl-3">
+                                    <h3 class="heading">Pendingin Udara (AC)</h3>
+                                    <p>Suasana sejuk yang mendukung fokus dan kenyamanan selama menggunakan ruangan diskusi.</p>
+                                </div>
+                            </div>
+                            <div class="services-2 col-lg-6 d-flex w-100">
+                                <div class="icon d-flex justify-content-center align-items-center">
+                                    <span class="flaticon-first"></span>
+                                </div>
+                                <div class="media-body pl-3">
+                                    <h3 class="heading">Alat Bantu Papan Tulis</h3>
+                                    <p>Papan tulis selalu bersih dan siap digunakan kembali dan tersedia spidol dengan kualitas terbaik untuk menunjang penyampaian ide dengan jelas dan mudah dibaca.</p>
                                 </div>
                             </div>
                         </div>

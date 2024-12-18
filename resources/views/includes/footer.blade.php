@@ -1,11 +1,11 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
+            <div class="col-md-6 col-lg-12 mb-md-0 mb-4">
                 <h2 class="footer-heading"><a href="#" class="logo">Pinjam Ruang Diskusi</a></h2>
-                <p>Sebuah website yang dapat meminjam ruangan perpustakaan secara mudah dan cepat.</p>
+                <p>Sebuah website untuk menyediakan layanan peminjaman ruangan diskusi pada perpustakaan Universitas Esa Unggul Bekasi.</p>
             </div>
-            <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
+            {{-- <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
                 <h2 class="footer-heading">Layanan</h2>
                 <ul class="list-unstyled">
                     <li><a href="https://registrasi.polibatam.ac.id/" target="_blank"
@@ -30,7 +30,7 @@
                             data-toggle="tooltip" data-placement="top" title="Instagram"><span
                                 class="fa fa-instagram"></span></a></li>
                 </ul>
-            </div>
+            </div> --}}
         </div>
     </div>
     <div class="w-100 mt-5 border-top py-5">
