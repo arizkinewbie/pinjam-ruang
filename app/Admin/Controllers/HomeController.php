@@ -19,13 +19,6 @@ class HomeController extends Controller
             ->title('Dashboard')
             ->description('Pinjam Ruang Diskusi')
             ->row(function (Row $row) {
-                // Widget for users
-                $row->column(3, function (Column $column) {
-                    $count_users = DB::table('admin_users')->whereNull('deleted_at')->count();
-                    $infoBox = new InfoBox('Pengguna', 'users', 'aqua', route('admin.auth.users.index'), $count_users);
-                    $column->append($infoBox);
-                });
-
                 // Widget for room types
                 $row->column(3, function (Column $column) {
                     $count_room_types = DB::table('room_types')->whereNull('deleted_at')->count();
@@ -42,9 +35,22 @@ class HomeController extends Controller
 
                 // Widget for borrow rooms
                 $row->column(3, function (Column $column) {
-                    $count_borrow_rooms = DB::table('borrow_rooms')->whereNull('deleted_at')->count();
+                    //jika user selain admin maka hanya menampilkan peminjaman yang dia buat
+                    if (\Admin::user()->isRole('mahasiswa')) {
+                        $count_borrow_rooms = DB::table('borrow_rooms')->where('borrower_id', \Admin::user()->id)->whereNull('deleted_at')->count();
+                    } else {
+                        $count_borrow_rooms = DB::table('borrow_rooms')->whereNull('deleted_at')->count();
+                    }
                     $infoBox = new InfoBox('Peminjaman', 'calendar', 'red', route('panel.borrow-rooms.index'), $count_borrow_rooms);
                     $column->append($infoBox);
+                });
+                // Widget for users
+                $row->column(3, function (Column $column) {
+                    $count_users = DB::table('admin_users')->whereNull('deleted_at')->count();
+                    $infoBox = new InfoBox('Pengguna', 'users', 'aqua', route('admin.auth.users.index'), $count_users);
+                    if (!\Admin::user()->isRole('mahasiswa')) {
+                        $column->append($infoBox);
+                    }
                 });
             });
             /*
