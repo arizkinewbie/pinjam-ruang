@@ -123,7 +123,7 @@
                                                     Diskusi</option>
                                                 <option value="tugas-kelompok" @if (old('need') == 'tugas-kelompok') selected @endif>
                                                     Tugas Kelompok</option>
-                                                <option value="beljar" @if (old('need') == 'belajar') selected @endif>
+                                                <option value="belajar" @if (old('need') == 'belajar') selected @endif>
                                                     Belajar</option>
                                             </select>
                                         </div>
