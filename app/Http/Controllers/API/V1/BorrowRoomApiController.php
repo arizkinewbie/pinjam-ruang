@@ -17,7 +17,7 @@ class BorrowRoomApiController extends Controller
     public function storeBorrowRoomWithCollegeStudent(Request $request)
     {
         // Set request to variable
-        $full_name =        ucfirst(strtolower($request->full_name));
+        $full_name =        ucwords(strtolower($request->full_name));
         $nim =              $request->nim;
         $study_program =    $request->study_program;
         $email =            $request->email;
