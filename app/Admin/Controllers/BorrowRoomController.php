@@ -2,18 +2,18 @@
 
 namespace App\Admin\Controllers;
 
-use App\Enums\ApprovalStatus;
-use App\Models\BorrowRoom;
-use App\Http\Controllers\Controller;
-use App\Models\Room;
 use Carbon\Carbon;
+use App\Models\Room;
+use Encore\Admin\Form;
+use Encore\Admin\Grid;
+use Encore\Admin\Show;
+use App\Models\BorrowRoom;
+use Encore\Admin\Form\Field;
+use App\Enums\ApprovalStatus;
+use Encore\Admin\Layout\Content;
+use App\Http\Controllers\Controller;
 use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Controllers\HasResourceActions;
-use Encore\Admin\Form;
-use Encore\Admin\Form\Field;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Show;
 
 class BorrowRoomController extends Controller
 {
@@ -211,22 +211,26 @@ class BorrowRoomController extends Controller
 
         // Mahasiswa Form
         if ($isTatausaha) {
-            $form->display('borrower', 'Peminjam') ->with(function ($borrower) {
+            $form->display('borrower', 'Peminjam')->with(function ($borrower) {
                 $adminUserDetail = \App\Models\AdminUserDetail::where('admin_user_id', $borrower)->first()->data;
                 $data = json_decode($adminUserDetail);
                 $result = "{$borrower['name']} ({$borrower['username']}) - " . ucwords(str_replace('-', ' ', $data->study_program));
                 return $result;
             });
-            $form->display('room.name', 'Ruangan');
+            $form->display('room.name', 'Ruangan')->with(function () {
+                return "{$this->room->room_type->name} - {$this->room->name}";
+            });
             $form->display('borrow_at', 'Lama Pinjam')->with(function () {
                 $borrow_at = Carbon::parse($this->borrow_at);
                 $until_at = Carbon::parse($this->until_at);
                 $count_days = $borrow_at->diffInDays($until_at) + 1;
-
                 if ($count_days == 1)
-                    return $count_days . ' hari (' . $until_at->format('d M Y') . ')';
+                    return $borrow_at->format('d M Y H:i:s') . ' - ' . $until_at->format('H:i:s');
                 else
-                    return $count_days . ' hari (' . $borrow_at->format('d M Y') . ' s/d ' . $until_at->format('d M Y') . ')';
+                    return $count_days . ' hari (' . $borrow_at->format('d M Y H:i:s') . ' s/d ' . $until_at->format('d M Y H:i:s') . ')';
+            });
+            $form->display('need', 'Keperluan')->with(function ($need) {
+                return ucwords(str_replace('-', ' ', $need));
             });
         } else {
             $form->select('borrower_id', 'Peminjam')->options(function ($id) {
@@ -246,7 +250,7 @@ class BorrowRoomController extends Controller
         // BATAS
         if ($isTatausaha) {
             $form->display('created_at', 'Diajukan pada')->with(function () {
-                return Carbon::parse($this->created_at)->format('d M Y');
+                return Carbon::parse($this->created_at)->format('d M Y H:i:s');
             });
             $form->hidden('admin_id');
             $form->display('admin_id', 'Staff Perpustakaan')->with(function () use ($admin_user) {
