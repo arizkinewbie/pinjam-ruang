@@ -14,7 +14,7 @@
         <strong>
             <blockquote>{{ $statusMessage }}</blockquote>
         </strong>
-        <i>Catatan : {{ $notes }}</i><br>
+        <i>Catatan : {{ $notes }}</i><br><br>
         Terima kasih telah menggunakan layanan kami.<br>Jika ada pertanyaan, jangan ragu untuk menghubungi kami <a href="mailto:{{ config('app.email') }}">{{ config('app.email') }}</a>.
     </p>
     <p>Salam hangat, {{ $adminName }} - <a href="{{ config('app.url') }}">{{ config('app.name') }}</a></p>
