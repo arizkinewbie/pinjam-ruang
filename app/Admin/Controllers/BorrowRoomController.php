@@ -10,8 +10,10 @@ use Encore\Admin\Show;
 use App\Models\BorrowRoom;
 use Encore\Admin\Form\Field;
 use App\Enums\ApprovalStatus;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Controllers\HasResourceActions;
 
@@ -293,8 +295,34 @@ class BorrowRoomController extends Controller
         }
 
         $form->saving(function (Form $form) {
-            // if ($form->admin_id)
-            $form->admin_id = \Admin::user()->id;
+            $form->admin_id = Admin::user()->id;
+            if ($form->isEditing() && $form->model()->admin_approval_status != $form->admin_approval_status) {
+                $borrowRoom = $form->model();
+                $newStatus = $form->admin_approval_status;
+
+                // Data email
+                $borrowerEmail = $borrowRoom->borrower->email; // Pastikan borrower memiliki field email
+                $borrowerName = $borrowRoom->borrower->name;   // Nama peminjam
+                $roomName = $borrowRoom->room->name;           // Nama ruangan
+                $roomType = $borrowRoom->room->room_type->name; // Tipe ruangan
+                $notes = $form->notes == null ? '-' : $form->notes;  // Catatan
+                $statusMessage = $newStatus == ApprovalStatus::Disetujui
+                    ? 'Peminjaman telah disetujui'
+                    : 'Peminjaman ditolak';
+
+                // send email
+                Mail::send('emails.approval_status', [
+                    'borrowerName' => $borrowerName,
+                    'adminName' => Admin::user()->name,
+                    'roomName' => $roomName,
+                    'roomType' => $roomType,
+                    'notes' => $notes,
+                    'statusMessage' => $statusMessage,
+                ], function ($message) use ($borrowerEmail, $borrowerName) {
+                    $message->to($borrowerEmail, $borrowerName)
+                        ->subject('Perubahan Status Peminjaman Ruang Diskusi');
+                });
+            }
         });
 
         return $form;
