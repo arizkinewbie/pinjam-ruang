@@ -20,9 +20,9 @@
     <section id="form-pinjam-ruang" class="ftco-section ftco-book ftco-no-pt ftco-no-pb">
         <div class="container">
             <div class="row justify-content-end">
-                <div class="col-lg-4">
+                <div class="col-lg-5">
                     <form method="POST" action="{{ route('api.v1.borrow-room-with-college-student', []) }}"
-                        class="appointment-form" autocomplete="off">
+                        class="appointment-form">
                         @csrf
                         <h3 class="mb-3">Pinjam ruang disini</h3>
                         {{-- Show any errors --}}
@@ -51,13 +51,13 @@
                             </div>
                         @endif
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <input name="full_name" value="{{ old('full_name') }}" type="text"
                                         class="form-control" placeholder="Nama Lengkap" required>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <input name="email" value="{{ old('email') }}" type="email" class="form-control"
                                         placeholder="Email Aktif" required>
@@ -112,7 +112,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="form-field">
+                                        <div class="select-wrap">
+                                            <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                            <select name="need" id="" class="form-control" required>
+                                                <option value="" selected disabled>Pilih Keperluan</option>
+                                                <option value="diskusi" @if (old('need') == 'diskusi') selected @endif>
+                                                    Diskusi</option>
+                                                <option value="tugas-kelompok" @if (old('need') == 'tugas-kelompok') selected @endif>
+                                                    Tugas Kelompok</option>
+                                                <option value="beljar" @if (old('need') == 'belajar') selected @endif>
+                                                    Belajar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">
