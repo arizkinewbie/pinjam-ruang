@@ -51,7 +51,10 @@
                                     $count_days = $borrow_at->diffInDays($until_at) + 1;
 
                                     if ($count_days == 1) {
-                                        $borrower_status[] = $borrower_first_name . ' - ' . $borrow_at->format('d M Y H:i:s');
+                                        $borrower_status[] = $borrower_first_name . ' - ' .
+                                        $borrow_at->format('d M Y H:i:s') .
+                                        ' s.d ' .
+                                        $until_at->format('H:i:s');
                                     } else {
                                         $borrower_status[] =
                                             $borrower_first_name .
