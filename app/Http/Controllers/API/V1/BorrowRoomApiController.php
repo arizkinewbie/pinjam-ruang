@@ -17,7 +17,7 @@ class BorrowRoomApiController extends Controller
     public function storeBorrowRoomWithCollegeStudent(Request $request)
     {
         // Set request to variable
-        $full_name =        \Str::upper($request->full_name);
+        $full_name =        ucfirst(strtolower($request->full_name));
         $nim =              $request->nim;
         $study_program =    $request->study_program;
         $email =            $request->email;
@@ -120,6 +120,7 @@ class BorrowRoomApiController extends Controller
         $borrow_room = BorrowRoom::create([
             'borrower_id' =>        $admin_user->id,
             'room_id' =>            $request->room,
+            'need' =>               $request->need,
             'borrow_at' =>          Carbon::make($request->borrow_at),
             'until_at' =>           Carbon::make($request->until_at),
         ]);

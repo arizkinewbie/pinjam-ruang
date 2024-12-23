@@ -20,6 +20,7 @@ class CreateBorrowRoomsTable extends Migration
             $table->foreignId('room_id')->constrained();
             $table->dateTime('borrow_at');
             $table->dateTime('until_at');
+            $table->text('need');
             $table->unsignedInteger('admin_id')->nullable();
             $table->tinyInteger('admin_approval_status')->default(ApprovalStatus::Pending());
             $table->dateTime('processed_at')->nullable();

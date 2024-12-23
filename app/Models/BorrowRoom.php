@@ -23,6 +23,7 @@ class BorrowRoom extends Model
         'room_id',
         'borrow_at',
         'until_at',
+        'need',
         'admin_id',
         'admin_approval_status',
         'processed_at',
