@@ -89,16 +89,16 @@ class BorrowRoomApiController extends Controller
         $room = Room::find($request->room);
         $borrow_at = $request->borrow_at;
         $already_booked = false;
+        $isNotValid = false;
         foreach ($room->borrow_rooms as $borrow_room) {
             $from = Carbon::make($borrow_room->borrow_at);
             $to =   Carbon::make($borrow_room->until_at);
-
+            $isNotValid = $borrow_room->admin_approval_status != 2 ? true : false;
             $already_booked = Carbon::make($borrow_at)->between($from, $to);
         }
-
-        if ($already_booked)
+        if ($already_booked && $isNotValid)
             return redirect(route('home'))->withInput($request->input())->withErrors([
-                'Maaf ruangan tersebut sudah dibooking pada tanggal tersebut, silahkan pilih tanggal lain.'
+                'Maaf ruangan tersebut sudah dibooking pada tanggal & jam tersebut, silahkan pilih tanggal/jam lain.'
             ]);
 
         // Check if college student already have active borrow_rooms and didn't return the key
