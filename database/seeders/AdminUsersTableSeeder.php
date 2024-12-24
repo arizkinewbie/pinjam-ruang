@@ -40,20 +40,7 @@ class AdminUsersTableSeeder extends Seeder
                 'created_at' => '2024-12-10 10:21:03',
                 'updated_at' => '2024-12-10 10:21:03',
                 'deleted_at' => NULL,
-            ),
-            2 =>
-            array(
-                'id' => 3,
-                'username' => '20200801373',
-                'password' => '$2y$10$9Dd3WypDzkEr5QdFR7m4kuKNRJ4CP1OSP7pkU0GbtNTkTSj2Ohiua',
-                'name' => 'Anjang Putra Rahman',
-                'email' => 'arizkiputrar@gmail.com',
-                'avatar' => NULL,
-                'remember_token' => NULL,
-                'created_at' => '2024-12-10 10:21:03',
-                'updated_at' => '2024-12-10 10:21:03',
-                'deleted_at' => NULL,
-            ),
+            )
         );
 
         // Checking if the table already have a query
