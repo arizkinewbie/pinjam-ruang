@@ -1,4 +1,4 @@
-<div class="wrap">
+{{-- <div class="wrap">
     <div class="container">
         <div class="row justify-content-between">
                 <div class="col d-flex align-items-center">
@@ -14,7 +14,7 @@
                 </div>
         </div>
     </div>
-</div>
+</div> --}}
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 <div class="container">
     <a class="navbar-brand" href="#">Pinjam<span>RuangDiskusi</span></a>
