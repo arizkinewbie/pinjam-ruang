@@ -24,7 +24,7 @@
                     <form method="POST" action="{{ route('api.v1.borrow-room-with-college-student', []) }}"
                         class="appointment-form">
                         @csrf
-                        <h3 class="mb-3">Pinjam ruang disini</h3>
+                        <h3 class="mb-3">Form Peminjaman Ruangan Diskusi</h3>
                         {{-- Show any errors --}}
                         @if ($errors->isNotEmpty())
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
