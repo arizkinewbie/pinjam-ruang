@@ -8,8 +8,11 @@
 </head>
 
 <body>
-    <p>Pesan dari: {{ $name }} - {{ $email }} - {{ $hp }}</p>
-    <p>"{{ $note }}"</p>
+    <p>Pesan dari: {{ $name }} ({{ $nim }})
+        <br> Email/Hp: {{ $email }}/{{ $hp }}
+        <br>Isi Pesan:
+    </p>
+    <p><strong>"{{ $note }}"</strong></p>
     <p>Mohon tolong segera merespon pesan ini.</p>
 </body>
 
