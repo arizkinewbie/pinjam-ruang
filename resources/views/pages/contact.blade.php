@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <section class="hero-wrap hero-wrap-2"
-        style="background-image: url('vendor/technext/vacation-rental/images/services-1.jpg');"
+        style="background-image: url('uploads/images/logo.jpg');"
         data-stellar-background-ratio="0.8">
         <div class="overlay"></div>
         <div class="container">
