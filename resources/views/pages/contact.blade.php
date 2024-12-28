@@ -22,8 +22,9 @@
                     <strong class="subtitle aos-init aos-animate" data-aos="fade-up" data-aos-delay="0">Contact Us</strong>
                     <h2 class="heading aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Let's have a talk</h2>
                 </div>
-                <form class="contact-form" action="{{ route('contact') }}" enctype="multipart/form-data" id="contact-form"
+                <form class="contact-form" action="" enctype="multipart/form-data" id="contact-form"
                     autocomplete="off">
+                    @csrf
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
@@ -67,6 +68,31 @@
         </div>
     </div>
 @section('scripts')
-    <script></script>
+    <script>
+        $(document).ready(function() {
+            $('#contact-form').submit(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{ route('api.v1.contact-form', []) }}",
+                    method: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function(response) {
+                        if (response.status == 'success') {
+                            alert(response.message);
+                            $('#contact-form')[0].reset();
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert(xhr.responseText);
+                    }
+                })
+            });
+        });
+    </script>
 @endsection
 @endsection

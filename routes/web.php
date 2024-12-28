@@ -25,4 +25,5 @@ Route::group([
     'as'        => 'api.v1.'
 ], function (Router $router) {
     $router->post('borrow-room-with-college-student', [BorrowRoomApiController::class, 'storeBorrowRoomWithCollegeStudent'])->name('borrow-room-with-college-student');
+    $router->post('contact-form', [HomeController::class, 'storeContactForm'])->name('contact-form');
 });
