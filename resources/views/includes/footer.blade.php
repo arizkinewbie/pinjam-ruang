@@ -1,9 +1,9 @@
-<footer class="footer">
+<footer class="footer" style="background-color: #03588C">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-12 mb-md-0 mb-4">
-                <h2 class="footer-heading"><a href="/" class="logo" style="color: #FABF53">Pinjam Ruang Diskusi</a></h2>
-                <p>Sebuah website untuk menyediakan layanan peminjaman ruangan diskusi pada perpustakaan Universitas Esa Unggul Bekasi.</p>
+                <h2 class="footer-heading"><a href="/" class="logo">Pinjam Ruang Diskusi</a></h2>
+                <p style="color: #ffffff">Sebuah website untuk menyediakan layanan peminjaman ruangan diskusi pada perpustakaan Universitas Esa Unggul Bekasi.</p>
             </div>
             {{-- <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
                 <h2 class="footer-heading">Layanan</h2>
@@ -33,11 +33,11 @@
             </div> --}}
         </div>
     </div>
-    <div class="w-100 mt-5 border-top py-5">
+    <div class="w-100 mt-5 border-top py-5" style="background-color: #004066">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-12">
-                    <p class="copyright mb-0 text-center" style="color: #F29F05">
+                    <p class="copyright mb-0 text-center" style="color: #ffffff">
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
