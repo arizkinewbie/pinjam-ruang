@@ -10,7 +10,7 @@
                 <div class="col-md-7 ftco-animate">
                     <h2 class="subheading">Selamat datang di Pinjam Ruang Diskusi</h2>
                     <h1 class="mb-4">Pinjam ruangan perpustakaan mudah dan cepat</h1>
-                    <p><a href="#" class="btn btn-primary">Pelajari lebih lanjut</a> <a href="{{ route('contact') }}"
+                    <p><a href="#more" class="btn btn-primary">Pelajari lebih lanjut</a> <a href="{{ route('contact') }}"
                             class="btn btn-white">Hubungi kami</a></p>
                 </div>
             </div>
@@ -166,7 +166,7 @@
 
     <section class="ftco-section testimony-section bg-light">
         <div class="container">
-            <div class="row justify-content-center pb-5 mb-3">
+            <div class="row justify-content-center pb-5 mb-3" id="more">
                 <div class="col-md-7 heading-section text-center ftco-animate">
                     <h2>Tata Cara Peminjaman</h2>
                 </div>
