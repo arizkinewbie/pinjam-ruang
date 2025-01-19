@@ -172,7 +172,7 @@ class BorrowRoomController extends Controller
         $show->field('until_at', 'Selesai Pinjam');
         $show->field('admin.name', ' Staff Perpustakaan');
         $show->field('admin_approval_status', 'Status Persetujuan')->using(ApprovalStatus::asSelectArray());
-        $show->field('processed_at', 'Kunci Diambil Pada');
+        $show->field('processed_at', 'Ruangan Dibukakan Pada');
         $show->field('returned_at', 'Diselesaikan Pada');
         $show->field('notes', 'Catatan');
         $show->created_at(trans('admin.created_at'));
@@ -260,7 +260,7 @@ class BorrowRoomController extends Controller
             })->readonly();
             $form->radio('admin_approval_status', 'Status Persetujuan')
                 ->options(ApprovalStatus::asSelectArray());
-            $form->datetime('processed_at', 'Kunci Diambil Pada')->format('YYYY-MM-DD HH:mm')->with(function ($value, Field $thisField) {
+            $form->datetime('processed_at', 'Ruangan Dibukakan Pada')->format('YYYY-MM-DD HH:mm')->with(function ($value, Field $thisField) {
                 $admin_approval_status = $this->admin_approval_status;
                 if (
                     $admin_approval_status == null
@@ -284,7 +284,7 @@ class BorrowRoomController extends Controller
                     return [$administrators->id => $administrators->name];
             })->ajax(route('panel.getAdministrators'));
             $form->radio('admin_approval_status', 'Status Persetujuan')->options(ApprovalStatus::asSelectArray());
-            $form->datetime('processed_at', 'Kunci Diambil Pada')->format('YYYY-MM-DD HH:mm');
+            $form->datetime('processed_at', 'Ruangan Dibukakan Pada')->format('YYYY-MM-DD HH:mm');
             $form->datetime('returned_at', 'Diselesaikan Pada')->format('YYYY-MM-DD HH:mm');
             $form->textarea('notes', 'Catatan');
 
