@@ -75,7 +75,7 @@
                                     <h3 class="mb-3"><a href="rooms.html">{{ $room->name }}</a></h3>
                                     <ul class="list-accomodation">
                                         <li><span>Maks:</span> {{ $room->max_people }} Orang</li>
-                                        <li><span>Status:</span> {{ App\Enums\RoomStatus::getDescription($room_status) }}
+                                        <li><span>Status:</span> {{ App\Enums\RoomStatus::getDescription((int) $room_status) }}
                                         </li>
                                         <li>
                                             @if (count($borrower_status) == 0)
