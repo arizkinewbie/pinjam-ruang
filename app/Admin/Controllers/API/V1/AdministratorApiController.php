@@ -35,6 +35,9 @@ class AdministratorApiController extends Controller
 
         ['code' => 'psikologi', 'name' => 'Psikologi', 'degree' => 'S1', 'faculty' => 'Fakultas Psikologi'],
 
+        ['code' => 'pendidikan-guru-sekolah-dasar', 'name' => 'Pendidikan Guru Sekolah Dasar', 'degree' => 'S1', 'faculty' => 'Fakultas Keguruan dan Ilmu Pendidikan'],
+        ['code' => 'pendidikan-bahasa-inggris', 'name' => 'Pendidikan Bahasa Inggris', 'degree' => 'S1', 'faculty' => 'Fakultas Keguruan dan Ilmu Pendidikan'],
+
         // Profesi
         ['code' => 'profesi-ners', 'name' => 'Profesi Ners', 'degree' => 'Profesi', 'faculty' => 'Fakultas Ilmu-Ilmu Kesehatan'],
 
